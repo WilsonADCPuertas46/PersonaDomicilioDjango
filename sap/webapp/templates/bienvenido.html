@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenido</title>
+</head>
+<body>
+<h1>Bienvendio a Sistema de Adminstración de Personas</h1>
+<h2>Número de personas: {{no_personas}}</h2>
+<div>
+    <p> Para crear o agregar otra persona:
+        <a href="nueva_persona">Crear Persona</a>
+    </p>
+</div>
+    <p>Personas existentes:</p>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Domicilio</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for persona in personas %} <!--Ciclo for para iterar la informacion de la base de datos-->
+        <tr>
+            <td>{{persona.id}}</td>
+            <td>{{persona.nombre}} {{persona.apellido}}</td>
+            <td>{{persona.email}}</td>
+            <td>{{persona.domicilio.direccion}} {{persona.domicilio.barrio}} {{persona.domicilio.ciudad}}</td>
+            <td><a href="detalle_persona/{{persona.id}}">Ver</a></td>
+            <!--Link creado desde la url creada llama detalle_persona-->
+            <td><a href="editar_persona/{{persona.id}}">Editar</a></td>
+            <td><a href="eliminar_persona/{{persona.id}}">Eliminar</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<br>
+<a href="ir_domicilio">Ir Domicilio</a>
+</body>
+</html>

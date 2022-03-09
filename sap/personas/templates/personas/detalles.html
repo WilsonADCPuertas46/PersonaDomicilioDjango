@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle de la persona</title>
+</head>
+<body>
+<h1>Detalle Persona</h1>
+<p>Id Persona: {{persona.id}}</p>
+<p>Nombre: {{persona.nombre}}</p>
+<p>Apellido: {{persona.apellido}}</p>
+<p>Email: {{persona.email}}</p>
+
+<a href="{% url 'inicio' %}">Regresar a inicio</a>
+<!--Link para que cuando entremos a detalle de algo podamonos regresar al inicio
+además, 'inicio' es el nombre que le colocamos al url del inicio para asi poder hacer uso de ella en estas partes-->
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>En domicilio</title>
+</head>
+<body>
+<h1>Sistema de Domicilios</h1>
+<h2>Número de domicilios: {{no_domicilios}}</h2>
+<a href="/nuevo_domicilio">Crear domicilio</a>
+<div>
+<p>Domicilios existentes:</p>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Direccion</th>
+            <th>Barrio</th>
+            <th>Ciudad</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for domicilio in domicilios %} <!--Ciclo for para iterar la informacion de la base de datos-->
+        <tr>
+            <td>{{domicilio.id}}</td>
+            <td>{{domicilio.direccion}}</td>
+            <td>{{domicilio.barrio}}</td>
+            <td>{{domicilio.ciudad}}</td>
+            <td><a href="/detalle_domicilio/{{domicilio.id}}">Detalle</a></td>
+            <!--Link creado desde la url creada llama detalle_persona-->
+            <td><a href="/editar_domicilio/{{domicilio.id}}">Editar</a></td>
+            <td><a href="/eliminar_domicilio/{{domicilio.id}}">Eliminar</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<br>
+<a href="{% url 'inicio' %}">Regresar</a>
+
+<!--<div>
+    <ul>
+        {% for domicilio in domicilios %}
+        <p> Lista de domicilios:</p>
+        <li>
+            ID:{{domicilio.id}} |
+            Direccion:{{domicilio.direccion}} |
+            Barrio:{{domicilio.barrio}} |
+            Ciudad:{{domicilio.ciudad}}
+        <a href="/detalle_domicilio/{{domicilio.id}}">Detalle</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div> -->
+</body>
+</html>
